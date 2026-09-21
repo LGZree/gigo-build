@@ -1,0 +1,54 @@
+:root{
+  --navbar:#A9CCE8; --white:#FFFFFF; --dark:#3C3F45; --soft:#E3E5E8; --red:#E03C31;
+  --ink:#1F2A33; --rail:#FFFFFF; --panel:#3C3F45; --view:#FFFFFF; --bottom:#E3E5E8;
+}
+html[data-theme="dark"]{
+  --navbar:#2B3A4A; --rail:#1E242B; --panel:#262B31; --view:#14181D; --bottom:#2A2F36;
+  --ink:#E8EEF4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;height:100vh;display:flex;flex-direction:column;background:var(--view);color:var(--ink)}
+#navbar{background:var(--navbar);height:48px;display:flex;align-items:center;padding:0 12px;gap:12px}
+#logo{background:var(--white);color:var(--ink);font-weight:700;border-radius:8px;padding:4px 10px;text-decoration:none}
+#app-title{flex:1;text-align:center;color:#1F2A33;font-size:18px;letter-spacing:.5px}
+html[data-theme="dark"] #app-title{color:#fff}
+#theme-wrap{position:relative}
+.white-btn{background:var(--white);color:#222;border:0;border-radius:10px;padding:6px 12px;cursor:pointer}
+#theme-menu{position:absolute;right:0;top:34px;background:var(--white);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;z-index:50}
+#theme-menu button{border:0;background:var(--white);padding:8px 14px;cursor:pointer;text-align:left}
+#main{flex:1;display:flex;min-height:0}
+#rail{background:var(--rail);width:60px;display:flex;flex-direction:column;align-items:center;padding:10px 0;gap:14px;border-right:1px solid #0001}
+.rail-btn{width:40px;height:40px;font-size:20px;border-radius:10px;border:0;background:transparent;cursor:pointer;color:var(--dark)}
+.rail-btn[data-menu="structure"]{color:#fff;text-shadow:0 0 2px #000,0 0 2px #000}
+.rail-btn[data-menu="connector"]{color:var(--red)}
+.rail-btn.active[data-menu="search"]{background:var(--dark);color:#fff}
+.rail-btn.active[data-menu="gear"]{background:var(--dark);color:#fff}
+.rail-btn.active[data-menu="connector"]{background:var(--red);color:#fff}
+.rail-btn.active[data-menu="structure"]{background:#8a8f98;color:#fff}
+#panel{background:var(--panel);width:300px;display:flex;flex-direction:column;padding:12px;gap:10px}
+#panel[hidden]{display:none}
+#panel-search-row{display:flex;align-items:center;gap:8px}
+#panel-cat-icon{font-size:20px;color:#fff;min-width:24px;text-align:center}
+#panel-search{flex:1;border-radius:12px;border:0;padding:8px 12px;outline:none}
+#panel-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;padding-right:4px}
+#panel-grid::-webkit-scrollbar{width:8px}
+#panel-grid::-webkit-scrollbar-thumb{background:var(--soft);border-radius:8px}
+.card{background:#ffffff14;border:1px solid #ffffff22;border-radius:10px;overflow:hidden;cursor:grab;color:#fff}
+.card canvas{width:100%;height:110px;display:block;background:#ffffff10}
+.card .lbl{padding:6px 8px;font-size:12px;text-align:center}
+#center{flex:1;display:flex;flex-direction:column;min-width:0}
+#viewport{flex:1;position:relative;background:var(--view);min-height:0}
+#scene-container{position:absolute;inset:0}
+#scene-container canvas{display:block}
+#viewport-toolbar{position:absolute;top:8px;left:8px;display:flex;gap:8px;flex-wrap:wrap;background:#ffffffcc;border-radius:10px;padding:6px 8px}
+html[data-theme="dark"] #viewport-toolbar{background:#000000aa;color:#fff}
+.tb-group{display:flex;align-items:center;gap:4px;font-size:12px}
+.tb-group button{border:1px solid #0002;border-radius:6px;padding:3px 8px;cursor:pointer;background:#fff}
+.tb-group button.on{background:var(--dark);color:#fff}
+#bom{position:absolute;top:8px;right:8px;width:220px;max-height:60%;overflow:auto;background:#ffffffee;border-radius:10px;padding:10px;font-size:12px}
+html[data-theme="dark"] #bom{background:#000000cc;color:#fff}
+#bom ul{list-style:none;margin-top:6px}
+#bom li{display:flex;justify-content:space-between;padding:2px 0}
+#hint{position:absolute;bottom:8px;left:8px;font-size:11px;background:#00000088;color:#fff;padding:4px 8px;border-radius:8px}
+#bottombar{background:var(--bottom);height:52px;display:flex;align-items:center;justify-content:center;gap:14px}
+.divider{width:1px;height:24px;background:#0003}

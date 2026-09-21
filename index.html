@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gigo Builder V1</title>
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<header id="navbar">
+  <a id="logo" href="#" title="Main page">NA</a>
+  <h1 id="app-title">Gigo Builder V1</h1>
+  <div id="theme-wrap">
+    <button id="theme-btn" class="white-btn">Theme ▾</button>
+    <div id="theme-menu" hidden>
+      <button data-set-theme="light">☀ Light</button>
+      <button data-set-theme="dark">☾ Dark</button>
+    </div>
+  </div>
+</header>
+<div id="main">
+  <nav id="rail" aria-label="Parts menus">
+    <button class="rail-btn" data-menu="search" title="Search">🔍</button>
+    <button class="rail-btn" data-menu="structure" title="Structure pieces">▥</button>
+    <button class="rail-btn" data-menu="connector" title="Connector">▬</button>
+    <button class="rail-btn" data-menu="gear" title="Gear">⚙</button>
+  </nav>
+  <aside id="panel" hidden>
+    <div id="panel-search-row">
+      <span id="panel-cat-icon"></span>
+      <input id="panel-search" type="search" placeholder="Search Here!">
+    </div>
+    <div id="panel-grid"></div>
+  </aside>
+  <div id="center">
+    <div id="viewport">
+      <div id="scene-container"></div>
+      <div id="viewport-toolbar">
+        <div class="tb-group">
+          <span>Grid:</span>
+          <button data-grid="S">S</button>
+          <button data-grid="M" class="on">M</button>
+          <button data-grid="L">L</button>
+          <button id="grid-toggle" class="on" title="Toggle grid">▦</button>
+        </div>
+        <div class="tb-group">
+          <span>Mode:</span>
+          <button id="mode-move" class="on">Move</button>
+          <button id="mode-rot">Rotate</button>
+        </div>
+        <div class="tb-group">
+          <span>Lock:</span>
+          <button data-lock="x">X</button>
+          <button data-lock="y">Y</button>
+          <button data-lock="z">Z</button>
+        </div>
+        <div class="tb-group">
+          <button id="delete-part" title="Delete selected">🗑</button>
+          <button id="clear-all" title="Clear all">✖</button>
+        </div>
+      </div>
+      <div id="bom" hidden>
+        <h3>BOM <span id="bom-count"></span></h3>
+        <ul id="bom-list"></ul>
+        <p id="bom-warn"></p>
+      </div>
+      <div id="hint">Drag card → 3D to add • Drag arrow = move • Shift+drag = lock others • Alt+drag = ignore grid • Socket snap always ON</div>
+    </div>
+    <footer id="bottombar">
+      <button id="btn-save" class="white-btn">⭱ Save as</button>
+      <span class="divider"></span>
+      <button id="btn-import" class="white-btn">⭳ Import</button>
+      <input id="file-import" type="file" accept=".json" hidden>
+    </footer>
+  </div>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
